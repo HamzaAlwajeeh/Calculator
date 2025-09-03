@@ -19,6 +19,7 @@ class ButtonsSection extends StatelessWidget {
             text4: '÷',
             textColor: ColorsStyles.secondaryColor,
             backgroundColor: ColorsStyles.greyColor,
+            isOperator: 4,
           ),
           const SizedBox(height: 22),
           CustomRowButtons(text1: '7', text2: '8', text3: '9', text4: 'X'),

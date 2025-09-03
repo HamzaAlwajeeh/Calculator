@@ -12,6 +12,7 @@ class CustomRowButtons extends StatelessWidget {
     this.width,
     this.textColor,
     this.backgroundColor,
+    this.isOperator,
   });
   final String text1;
   final String? text2;
@@ -20,12 +21,14 @@ class CustomRowButtons extends StatelessWidget {
   final double? width;
   final Color? textColor;
   final Color? backgroundColor;
+  final int? isOperator;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         CustomButton(
+          isOperator: isOperator == 4 ? true : false,
           width: width,
           text: text1,
           textColor: textColor ?? ColorsStyles.greyColor,
@@ -33,16 +36,19 @@ class CustomRowButtons extends StatelessWidget {
         ),
         if (text2 != null)
           CustomButton(
+            isOperator: isOperator == 4 ? true : false,
             text: text2!,
             textColor: textColor ?? ColorsStyles.greyColor,
             backgroundColor: backgroundColor ?? ColorsStyles.secondaryColor,
           ),
         CustomButton(
+          isOperator: isOperator == 4 ? true : false,
           text: text3,
           textColor: textColor ?? ColorsStyles.greyColor,
           backgroundColor: backgroundColor ?? ColorsStyles.secondaryColor,
         ),
         CustomButton(
+          isOperator: true,
           text: text4,
           textColor: ColorsStyles.greyColor,
           backgroundColor: ColorsStyles.primaryColor.withOpacity(0.8),
