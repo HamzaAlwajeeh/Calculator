@@ -18,7 +18,7 @@ class MyCalculator extends StatelessWidget {
         textSelectionTheme: const TextSelectionThemeData(
           cursorColor: ColorsStyles.greyColor,
         ),
-        scaffoldBackgroundColor: ColorsStyles.scaffoldDarkBackgroundColor,
+        scaffoldBackgroundColor: Colors.black,
       ),
       home: HomeView(),
     );
