@@ -62,6 +62,8 @@ class CustomButton extends StatelessWidget {
               context,
               listen: false,
             ).operationText;
+        Provider.of<CalculatorProvider>(context, listen: false).operationText =
+            '';
         String result =
             Provider.of<CalculatorProvider>(context, listen: false).result;
         HistoryModel historyModel = HistoryModel(

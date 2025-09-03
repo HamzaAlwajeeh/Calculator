@@ -5,21 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ListViewHistoryItems extends StatefulWidget {
-  const ListViewHistoryItems({super.key});
-
+  const ListViewHistoryItems({
+    super.key,
+    required this.scrollController,
+    required this.isShowingHistory,
+  });
+  final ScrollController scrollController;
+  final bool isShowingHistory;
   @override
   State<ListViewHistoryItems> createState() => _ListViewHistoryItemsState();
 }
 
 class _ListViewHistoryItemsState extends State<ListViewHistoryItems> {
-  final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
-    List<HistoryModel> histories =
-        Provider.of<HistoryProvider>(context).histories;
+    List<HistoryModel> histories = [];
+    if (widget.isShowingHistory) {
+      histories = Provider.of<HistoryProvider>(context).histories;
+    }
     histories.isNotEmpty ? scrollToBottom() : null;
     return ListView.builder(
-      controller: _scrollController,
+      controller: widget.scrollController,
       reverse: false,
       physics: BouncingScrollPhysics(),
       itemCount: histories.length,
@@ -33,9 +39,9 @@ class _ListViewHistoryItemsState extends State<ListViewHistoryItems> {
   }
 
   void scrollToBottom() {
-    if (_scrollController.hasClients) {
-      _scrollController.animateTo(
-        _scrollController.position.maxScrollExtent + 70,
+    if (widget.scrollController.hasClients) {
+      widget.scrollController.animateTo(
+        widget.scrollController.position.maxScrollExtent + 70,
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeIn,
       );
