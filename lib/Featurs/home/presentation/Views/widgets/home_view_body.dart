@@ -16,6 +16,7 @@ class HomeViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Expanded(child: HistorySection()),
+          const SizedBox(height: 20),
           Text('2245 + 14', style: Styles.textStyle24, maxLines: 1),
           CustomTextField(),
           ButtonsSection(),

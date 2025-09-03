@@ -6,6 +6,16 @@ class ListViewHistoryItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [HistoryItem()]);
+    return ListView.builder(
+      reverse: true,
+      physics: BouncingScrollPhysics(),
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: const HistoryItem(),
+        );
+      },
+    );
   }
 }
