@@ -1,4 +1,4 @@
-import 'package:calculator/Featurs/home/presentation/Views/widgets/custom_button.dart';
+import 'package:calculator/Featurs/home/presentation/Views/widgets/custom_row_buttons.dart';
 import 'package:calculator/constants/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -25,31 +25,22 @@ class ButtonsSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 42),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              CustomButton(
-                text: '7',
-                textColor: ColorsStyles.greyColor,
-                backgroundColor: ColorsStyles.secondaryColor,
-              ),
-              CustomButton(
-                text: '8',
-                textColor: ColorsStyles.greyColor,
-                backgroundColor: ColorsStyles.secondaryColor,
-              ),
-              CustomButton(
-                text: '9',
-                textColor: ColorsStyles.greyColor,
-                backgroundColor: ColorsStyles.secondaryColor,
-              ),
-              CustomButton(
-                text: 'X',
-                textColor: ColorsStyles.greyColor,
-                backgroundColor: ColorsStyles.primaryColor.withOpacity(0.8),
-              ),
-            ],
+          CustomRowButtons(
+            text1: 'AC',
+            text2: '8',
+            text3: '%',
+            text4: '÷',
+            textColor: ColorsStyles.secondaryColor,
+            backgroundColor: ColorsStyles.greyColor,
           ),
+          const SizedBox(height: 22),
+          CustomRowButtons(text1: '7', text2: '8', text3: '9', text4: 'X'),
+          const SizedBox(height: 16),
+          CustomRowButtons(text1: '4', text2: '5', text3: '6', text4: '-'),
+          const SizedBox(height: 16),
+          CustomRowButtons(text1: '1', text2: '2', text3: '3', text4: '+'),
+          const SizedBox(height: 30),
+          CustomRowButtons(text1: '0', text3: '.', text4: '=', width: 159),
         ],
       ),
     );
