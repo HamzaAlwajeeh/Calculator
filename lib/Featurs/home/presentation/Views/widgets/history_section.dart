@@ -13,7 +13,7 @@ class HistorySection extends StatelessWidget {
           alignment: Alignment.topLeft,
           child: SvgPicture.asset('assets/icons/Vector.svg', width: 30),
         ),
-        Expanded(child: ListViewHistoryItems()),
+        ListViewHistoryItems(),
       ],
     );
   }

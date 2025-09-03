@@ -15,7 +15,7 @@ class HomeViewBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          HistorySection(),
+          Expanded(child: HistorySection()),
           Text('2245 + 14', style: Styles.textStyle24, maxLines: 1),
           CustomTextField(),
           ButtonsSection(),
