@@ -5,6 +5,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: const Center(child: Text('Welcome to the Calculator App!')),
+    );
   }
 }

@@ -10,6 +10,10 @@ class MyCalculator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Calculator', home: HomeView());
+    return MaterialApp(
+      title: 'Calculator',
+      debugShowCheckedModeBanner: false,
+      home: HomeView(),
+    );
   }
 }
