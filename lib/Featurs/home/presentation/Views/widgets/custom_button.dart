@@ -46,11 +46,19 @@ class CustomButton extends StatelessWidget {
     } else {
       if (!isOperator) {
         Provider.of<CalculatorProvider>(context, listen: false).setResult(text);
+        Provider.of<CalculatorProvider>(
+          context,
+          listen: false,
+        ).seCurrentOperation(text);
       } else {
         Provider.of<CalculatorProvider>(
           context,
           listen: false,
         ).setOperation(text);
+        Provider.of<CalculatorProvider>(
+          context,
+          listen: false,
+        ).seCurrentOperation(text);
       }
     }
   }

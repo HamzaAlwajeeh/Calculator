@@ -1,7 +1,7 @@
 import 'package:calculator/Featurs/home/presentation/Views/widgets/button_section.dart';
+import 'package:calculator/Featurs/home/presentation/Views/widgets/current_oreration_text.dart';
 import 'package:calculator/Featurs/home/presentation/Views/widgets/custom_text_field.dart';
 import 'package:calculator/Featurs/home/presentation/Views/widgets/history_section.dart';
-import 'package:calculator/core/styles/styles.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -17,7 +17,7 @@ class HomeViewBody extends StatelessWidget {
         children: [
           Expanded(child: HistorySection()),
           const SizedBox(height: 20),
-          Text('2245 + 14', style: Styles.textStyle24, maxLines: 1),
+          CurentOperationText(),
           CustomTextField(),
           ButtonsSection(),
         ],

@@ -5,7 +5,7 @@ class CalculatorProvider extends ChangeNotifier {
   String? num2;
   String result = 0.toString();
   String? operator;
-  String? operationText;
+  String operationText = '';
 
   void setResult(String value) {
     if (result == '0') {
@@ -13,6 +13,11 @@ class CalculatorProvider extends ChangeNotifier {
     } else {
       result += value;
     }
+    notifyListeners();
+  }
+
+  void seCurrentOperation(String value) {
+    operationText += value;
     notifyListeners();
   }
 
@@ -66,7 +71,7 @@ class CalculatorProvider extends ChangeNotifier {
     num2 = null;
     operator = null;
     result = 0.toString();
-    operationText = null;
+    operationText = '';
     notifyListeners();
   }
 }
