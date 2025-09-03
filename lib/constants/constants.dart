@@ -7,3 +7,5 @@ abstract class ColorsStyles {
   static const Color scaffoldDarkBackgroundColor = Color(0xFF17181A);
   static const Color scaffoldLightBackgroundColor = Color(0xFFFBFBFD);
 }
+
+const String kHistoryBox = 'HistoryBox';

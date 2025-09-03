@@ -1,8 +1,16 @@
+import 'package:calculator/Featurs/home/data/models/history_model.dart';
 import 'package:calculator/Featurs/home/presentation/Views/home_view.dart';
 import 'package:calculator/constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+
+  Hive.registerAdapter(HistoryModelAdapter());
+
+  await Hive.openBox<HistoryModel>(kHistoryBox);
+
   runApp(MyCalculator());
 }
 
