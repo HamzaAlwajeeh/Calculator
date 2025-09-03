@@ -12,12 +12,12 @@ class HistoryItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
-          '2548 + 12',
+          historyModel.currentOperator,
           style: Styles.textStyle20.copyWith(
             color: ColorsStyles.secondaryColor,
           ),
         ),
-        Text('2560', style: Styles.textStyle20),
+        Text(historyModel.result, style: Styles.textStyle20),
       ],
     );
   }

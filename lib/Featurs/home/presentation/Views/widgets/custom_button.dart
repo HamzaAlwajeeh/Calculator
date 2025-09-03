@@ -1,4 +1,6 @@
+import 'package:calculator/Featurs/home/data/models/history_model.dart';
 import 'package:calculator/Featurs/home/presentation/view_model/providers/calculator_provider.dart';
+import 'package:calculator/Featurs/home/presentation/view_model/providers/history_provider.dart';
 import 'package:calculator/core/styles/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -50,6 +52,27 @@ class CustomButton extends StatelessWidget {
           context,
           listen: false,
         ).seCurrentOperation(text);
+      } else if (text == '=') {
+        Provider.of<CalculatorProvider>(
+          context,
+          listen: false,
+        ).setOperation(text);
+        String currentOperator =
+            Provider.of<CalculatorProvider>(
+              context,
+              listen: false,
+            ).operationText;
+        String result =
+            Provider.of<CalculatorProvider>(context, listen: false).result;
+        HistoryModel historyModel = HistoryModel(
+          currentOperator: currentOperator,
+          result: result,
+        );
+
+        Provider.of<HistoryProvider>(
+          context,
+          listen: false,
+        ).addHistory(historyModel);
       } else {
         Provider.of<CalculatorProvider>(
           context,
