@@ -53,15 +53,19 @@ class CalculatorProvider extends ChangeNotifier {
     switch (operator) {
       case '+':
         result = (double.parse(num1!) + double.parse(num2!)).toString();
+        num1 = result;
         break;
       case '-':
         result = (double.parse(num1!) - double.parse(num2!)).toString();
+        num1 = result;
         break;
       case 'X':
         result = (double.parse(num1!) * double.parse(num2!)).toString();
+        num1 = result;
         break;
       case '÷':
         result = (double.parse(num1!) / double.parse(num2!)).toString();
+        num1 = result;
         break;
     }
   }

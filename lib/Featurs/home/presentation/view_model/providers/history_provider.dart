@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class HistoryProvider extends ChangeNotifier {
   List<HistoryModel> histories = [];
-  bool isShowingHistory = true;
+  bool isShowingHistory = false;
 
   void addHistory(HistoryModel history) {
     histories.add(history);

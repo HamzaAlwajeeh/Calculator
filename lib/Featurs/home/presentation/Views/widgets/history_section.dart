@@ -30,8 +30,8 @@ class _HistorySectionState extends State<HistorySection> {
             },
             child: SvgPicture.asset(
               isShowingHistory
-                  ? 'assets/icons/Vector.svg'
-                  : 'assets/icons/close.svg',
+                  ? 'assets/icons/colseHistory.svg'
+                  : 'assets/icons/Vector.svg',
               width: 30,
             ),
           ),
