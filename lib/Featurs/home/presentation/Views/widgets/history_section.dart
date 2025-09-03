@@ -11,7 +11,10 @@ class HistorySection extends StatelessWidget {
       children: [
         Align(
           alignment: Alignment.topLeft,
-          child: SvgPicture.asset('assets/icons/Vector.svg', width: 30),
+          child: GestureDetector(
+            onTap: () {},
+            child: SvgPicture.asset('assets/icons/Vector.svg', width: 30),
+          ),
         ),
         Expanded(child: ListViewHistoryItems()),
       ],
