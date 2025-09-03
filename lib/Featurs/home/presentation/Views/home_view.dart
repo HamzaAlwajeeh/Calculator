@@ -1,5 +1,6 @@
 import 'package:calculator/Featurs/home/presentation/Views/widgets/home_view_body.dart';
 import 'package:calculator/Featurs/home/presentation/view_model/providers/calculator_provider.dart';
+import 'package:calculator/Featurs/home/presentation/view_model/providers/history_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,8 +10,11 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ChangeNotifierProvider(
-        create: (context) => CalculatorProvider(),
+      body: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => CalculatorProvider()),
+          ChangeNotifierProvider(create: (context) => HistoryProvider()),
+        ],
         child: HomeViewBody(),
       ),
     );

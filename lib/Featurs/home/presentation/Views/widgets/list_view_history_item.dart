@@ -1,19 +1,24 @@
+import 'package:calculator/Featurs/home/data/models/history_model.dart';
 import 'package:calculator/Featurs/home/presentation/Views/widgets/history_item.dart';
+import 'package:calculator/Featurs/home/presentation/view_model/providers/history_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ListViewHistoryItems extends StatelessWidget {
   const ListViewHistoryItems({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<HistoryModel> histories =
+        Provider.of<HistoryProvider>(context).histories;
     return ListView.builder(
       reverse: true,
       physics: BouncingScrollPhysics(),
-      itemCount: 10,
+      itemCount: histories.length,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 10),
-          child: const HistoryItem(),
+          child: HistoryItem(historyModel: histories[index]),
         );
       },
     );

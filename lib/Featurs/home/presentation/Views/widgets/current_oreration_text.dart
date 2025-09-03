@@ -14,7 +14,7 @@ class _CurentOperationTextState extends State<CurentOperationText> {
   @override
   Widget build(BuildContext context) {
     String currentOperation =
-        Provider.of<CalculatorProvider>(context).operationText ?? '';
+        Provider.of<CalculatorProvider>(context).operationText;
     return Text(currentOperation, style: Styles.textStyle24, maxLines: 1);
   }
 }
