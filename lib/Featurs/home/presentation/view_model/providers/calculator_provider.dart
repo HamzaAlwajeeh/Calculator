@@ -8,7 +8,11 @@ class CalculatorProvider extends ChangeNotifier {
   String? operationText;
 
   void setResult(String value) {
-    result += value;
+    if (result == '0') {
+      result = value;
+    } else {
+      result += value;
+    }
     notifyListeners();
   }
 
@@ -55,5 +59,14 @@ class CalculatorProvider extends ChangeNotifier {
         result = (double.parse(num1!) / double.parse(num2!)).toString();
         break;
     }
+  }
+
+  void reset() {
+    num1 = null;
+    num2 = null;
+    operator = null;
+    result = 0.toString();
+    operationText = null;
+    notifyListeners();
   }
 }

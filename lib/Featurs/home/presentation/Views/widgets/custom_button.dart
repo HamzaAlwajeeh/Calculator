@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        calculatorMethod(context);
+        calculatorMethod(context, text);
       },
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.zero,
@@ -40,14 +40,18 @@ class CustomButton extends StatelessWidget {
     );
   }
 
-  void calculatorMethod(BuildContext context) {
-    if (!isOperator) {
-      Provider.of<CalculatorProvider>(context, listen: false).setResult(text);
+  void calculatorMethod(BuildContext context, String text) {
+    if (text == 'AC') {
+      Provider.of<CalculatorProvider>(context, listen: false).reset();
     } else {
-      Provider.of<CalculatorProvider>(
-        context,
-        listen: false,
-      ).setOperation(text);
+      if (!isOperator) {
+        Provider.of<CalculatorProvider>(context, listen: false).setResult(text);
+      } else {
+        Provider.of<CalculatorProvider>(
+          context,
+          listen: false,
+        ).setOperation(text);
+      }
     }
   }
 }
