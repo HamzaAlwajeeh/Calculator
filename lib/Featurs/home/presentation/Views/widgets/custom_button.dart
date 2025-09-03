@@ -1,5 +1,7 @@
+import 'package:calculator/Featurs/home/presentation/view_model/providers/calculator_provider.dart';
 import 'package:calculator/core/styles/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -9,16 +11,25 @@ class CustomButton extends StatelessWidget {
     required this.backgroundColor,
     this.width,
     this.textStyle,
+    this.isOperator = false,
   });
   final String text;
   final Color textColor;
   final Color backgroundColor;
   final double? width;
   final TextStyle? textStyle;
+  final bool isOperator;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        if (!isOperator) {
+          Provider.of<CalculatorProvider>(
+            context,
+            listen: false,
+          ).setResult(text);
+        } else {}
+      },
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.zero,
         backgroundColor: backgroundColor,
