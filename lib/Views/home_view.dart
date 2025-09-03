@@ -1,3 +1,5 @@
+import 'package:calculator/Views/widgets/custom_button.dart';
+import 'package:calculator/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,7 +8,13 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(child: Text('Welcome to the Calculator App!')),
+      body: const Center(
+        child: CustomButton(
+          text: '8',
+          textColor: ColorsStyles.greyColor,
+          backgroundColor: ColorsStyles.secondaryColor,
+        ),
+      ),
     );
   }
 }
