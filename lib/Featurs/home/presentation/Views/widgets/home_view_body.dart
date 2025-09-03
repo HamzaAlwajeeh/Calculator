@@ -1,6 +1,5 @@
 import 'package:calculator/Featurs/home/presentation/Views/widgets/button_section.dart';
-import 'package:calculator/constants/constants.dart';
-import 'package:calculator/core/styles/styles.dart';
+import 'package:calculator/Featurs/home/presentation/Views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -13,14 +12,7 @@ class HomeViewBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Text(
-            '1,061',
-            style: Styles.textStyle48.copyWith(color: ColorsStyles.greyColor),
-            textAlign: TextAlign.right,
-          ),
-          ButtonsSection(),
-        ],
+        children: [CustomTextField(), ButtonsSection()],
       ),
     );
   }

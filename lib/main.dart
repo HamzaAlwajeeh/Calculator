@@ -15,6 +15,9 @@ class MyCalculator extends StatelessWidget {
       title: 'Calculator',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: ColorsStyles.greyColor,
+        ),
         scaffoldBackgroundColor: ColorsStyles.scaffoldDarkBackgroundColor,
       ),
       home: HomeView(),
