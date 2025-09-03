@@ -26,6 +26,4 @@ abstract class Styles {
     fontSize: 15,
     fontWeight: FontWeight.w500,
   );
-
-  // Buttons Styles
 }

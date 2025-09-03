@@ -8,12 +8,49 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-        child: CustomButton(
-          text: '8',
-          textColor: ColorsStyles.greyColor,
-          backgroundColor: ColorsStyles.secondaryColor,
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [ButtonsSection()],
+      ),
+    );
+  }
+}
+
+class ButtonsSection extends StatelessWidget {
+  const ButtonsSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 42),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomButton(
+                text: '7',
+                textColor: ColorsStyles.greyColor,
+                backgroundColor: ColorsStyles.secondaryColor,
+              ),
+              CustomButton(
+                text: '8',
+                textColor: ColorsStyles.greyColor,
+                backgroundColor: ColorsStyles.secondaryColor,
+              ),
+              CustomButton(
+                text: '9',
+                textColor: ColorsStyles.greyColor,
+                backgroundColor: ColorsStyles.secondaryColor,
+              ),
+              CustomButton(
+                text: 'X',
+                textColor: ColorsStyles.greyColor,
+                backgroundColor: ColorsStyles.primaryColor.withOpacity(0.8),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
