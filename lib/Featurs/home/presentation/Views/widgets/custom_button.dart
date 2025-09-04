@@ -50,15 +50,7 @@ class CustomButton extends StatelessWidget {
         listen: false,
       ).seCurrentOperation(text);
     } else if (text == '=') {
-      String currentOperator =
-          Provider.of<CalculatorProvider>(context, listen: false).operationText;
-
-      String result =
-          Provider.of<CalculatorProvider>(context, listen: false).result;
-      HistoryModel historyModel = HistoryModel(
-        currentOperator: currentOperator,
-        result: result,
-      );
+      HistoryModel historyModel = getStoreInformation(context);
 
       Provider.of<HistoryProvider>(
         context,
@@ -74,5 +66,18 @@ class CustomButton extends StatelessWidget {
         listen: false,
       ).seCurrentOperation(text);
     }
+  }
+
+  HistoryModel getStoreInformation(BuildContext context) {
+    String currentOperator =
+        Provider.of<CalculatorProvider>(context, listen: false).operationText;
+
+    String result =
+        Provider.of<CalculatorProvider>(context, listen: false).result;
+    HistoryModel historyModel = HistoryModel(
+      currentOperator: currentOperator,
+      result: result,
+    );
+    return historyModel;
   }
 }
