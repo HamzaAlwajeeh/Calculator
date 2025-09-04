@@ -67,6 +67,13 @@ class CalculatorProvider extends ChangeNotifier {
         result = (double.parse(num1!) / double.parse(num2!)).toString();
         num1 = result;
         break;
+      case 'AC':
+        reset();
+        break;
+      case '=':
+        setOperation(operator!);
+        operationText = result;
+        break;
     }
   }
 

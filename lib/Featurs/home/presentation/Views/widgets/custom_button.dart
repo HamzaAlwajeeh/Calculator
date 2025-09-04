@@ -43,49 +43,36 @@ class CustomButton extends StatelessWidget {
   }
 
   void calculatorMethod(BuildContext context, String text) {
-    if (text == 'AC') {
-      Provider.of<CalculatorProvider>(context, listen: false).reset();
+    if (!isOperator) {
+      Provider.of<CalculatorProvider>(context, listen: false).setResult(text);
+      Provider.of<CalculatorProvider>(
+        context,
+        listen: false,
+      ).seCurrentOperation(text);
+    } else if (text == '=') {
+      String currentOperator =
+          Provider.of<CalculatorProvider>(context, listen: false).operationText;
+
+      String result =
+          Provider.of<CalculatorProvider>(context, listen: false).result;
+      HistoryModel historyModel = HistoryModel(
+        currentOperator: currentOperator,
+        result: result,
+      );
+
+      Provider.of<HistoryProvider>(
+        context,
+        listen: false,
+      ).addHistory(historyModel);
     } else {
-      if (!isOperator) {
-        Provider.of<CalculatorProvider>(context, listen: false).setResult(text);
-        Provider.of<CalculatorProvider>(
-          context,
-          listen: false,
-        ).seCurrentOperation(text);
-      } else if (text == '=') {
-        Provider.of<CalculatorProvider>(
-          context,
-          listen: false,
-        ).setOperation(text);
-        String currentOperator =
-            Provider.of<CalculatorProvider>(
-              context,
-              listen: false,
-            ).operationText;
-
-        String result =
-            Provider.of<CalculatorProvider>(context, listen: false).result;
-        Provider.of<CalculatorProvider>(context, listen: false).operationText =
-            result;
-        HistoryModel historyModel = HistoryModel(
-          currentOperator: currentOperator,
-          result: result,
-        );
-
-        Provider.of<HistoryProvider>(
-          context,
-          listen: false,
-        ).addHistory(historyModel);
-      } else {
-        Provider.of<CalculatorProvider>(
-          context,
-          listen: false,
-        ).setOperation(text);
-        Provider.of<CalculatorProvider>(
-          context,
-          listen: false,
-        ).seCurrentOperation(text);
-      }
+      Provider.of<CalculatorProvider>(
+        context,
+        listen: false,
+      ).setOperation(text);
+      Provider.of<CalculatorProvider>(
+        context,
+        listen: false,
+      ).seCurrentOperation(text);
     }
   }
 }
