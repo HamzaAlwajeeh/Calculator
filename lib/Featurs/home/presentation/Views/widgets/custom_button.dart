@@ -48,20 +48,10 @@ class CustomButton extends StatelessWidget {
       Provider.of<CalculatorProvider>(
         context,
         listen: false,
-      ).seCurrentOperation(text);
+      ).setCurrentOperation(text);
     } else if (text == '=') {
       HistoryModel historyModel = getStoreInformation(context);
-
       addHistoryMethod(context, historyModel);
-    } else {
-      Provider.of<CalculatorProvider>(
-        context,
-        listen: false,
-      ).setOperation(text);
-      Provider.of<CalculatorProvider>(
-        context,
-        listen: false,
-      ).seCurrentOperation(text);
     }
   }
 

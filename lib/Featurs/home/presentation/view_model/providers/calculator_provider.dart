@@ -16,7 +16,7 @@ class CalculatorProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void seCurrentOperation(String value) {
+  void setCurrentOperation(String value) {
     operationText += value;
     notifyListeners();
   }
@@ -74,6 +74,9 @@ class CalculatorProvider extends ChangeNotifier {
         setOperation(operator!);
         operationText = result;
         break;
+      default:
+        setOperation(operator!);
+        setCurrentOperation(operator!);
     }
   }
 
